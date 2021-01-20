@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1BF045BD-F4E7-4887-8EE1-0F2E89417788}</ProjectGuid>
+    <ProjectGuid>{7A7F56AD-E6C5-43C6-858D-9F078C0EA1F6}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Classes</RootNamespace>
-    <AssemblyName>Classes</AssemblyName>
+    <RootNamespace>HomeWork_Delegate</RootNamespace>
+    <AssemblyName>HomeWork_Delegate</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,19 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Employee\DevEmployee.cs" />
-    <Compile Include="Employee\Employee.cs" />
-    <Compile Include="Helper.cs" />
-    <Compile Include="Interfaces\IEmployeable.cs" />
-    <Compile Include="Interfaces\IJiraTaskCreatable.cs" />
-    <Compile Include="Interfaces\IMeetingAttendable.cs" />
-    <Compile Include="Employee\LeadQAEmployee.cs" />
-    <Compile Include="Employee\PMEmployee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Employee\QAEmployee.cs" />
-    <Compile Include="Support\VacuumCleaner.cs" />
+    <Compile Include="Window.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

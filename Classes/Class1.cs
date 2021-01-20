@@ -9,9 +9,16 @@ namespace Classes
 
     class Node<T>
     {
+        private T newNode1;
+
+        public Node(T newNode1)
+        {
+            this.newNode1 = newNode1;
+        }
+
         public T data { get; set; }
         public Node<T> Next { get; set; }
-        public 
+        private Node<T> newNode { get; set; }
     }
 
     class MyList<T>

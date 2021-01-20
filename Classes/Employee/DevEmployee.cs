@@ -9,15 +9,17 @@ namespace Classes
 {
     class DevEmployee:Employee, IMeetingAttendable
     {
+        public static int NumberOfCalls;
+
         public string ProgrammingLanguage { get; set; }
 
-        public DevEmployee(string fn, string ln, float sal, string language) : base(fn, ln, sal)
+        public DevEmployee(string fn, string ln, float sal, int[] mk, string language) : base(fn, ln, sal, mk)
         {
             ProgrammingLanguage = language;
         }
         public override string GetInfo()
         {
-            return FirstName + " " + LastName + " " + Salary + " " + ProgrammingLanguage;
+            return FirstName + ", " + LastName + ", " + Salary + ", " + Helper.MasToString(Marks) + ", " + ProgrammingLanguage;
         }
 
         public override void Work()
@@ -28,6 +30,11 @@ namespace Classes
         public void AttendMeeting()
         {
             throw new NotImplementedException();
+        }
+        public static void GetClassInfo()
+        {
+            NumberOfCalls++;
+            Console.WriteLine("This is dev");
         }
     }
 }

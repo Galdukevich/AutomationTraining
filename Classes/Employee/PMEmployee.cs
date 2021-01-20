@@ -10,13 +10,13 @@ namespace Classes
     {
         public string ManagingProject { get; set; }
 
-        public PMEmployee(string fn, string ln, float sal, string projectName) : base(fn, ln, sal)
+        public PMEmployee(string fn, string ln, float sal, int[] mk, string projectName) : base(fn, ln, sal, mk)
         {
             ManagingProject = projectName;
         }
         public override string GetInfo()
         {
-            return FirstName + " " + LastName + " " + Salary + " " + ManagingProject;
+            return FirstName + ", " + LastName + ", " + Salary + ", " + Helper.MasToString(Marks) + ", " + ManagingProject;
         }
 
         public override void Work()

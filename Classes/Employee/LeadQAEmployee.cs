@@ -8,7 +8,7 @@ namespace Classes
 {
     class LeadQAEmployee:QAEmployee, IJiraTaskCreatable
     {
-        public LeadQAEmployee(string fn, string ln, float sal, string spec) : base(fn, ln, sal, spec)
+        public LeadQAEmployee(string fn, string ln, float sal, int[] mk, string spec) : base(fn, ln, sal, mk, spec)
         {
 
         }
@@ -20,7 +20,7 @@ namespace Classes
 
         public override string GetInfo()
         {
-            return FirstName + " " + LastName + " " + Salary + " " + Specialization;
+            return FirstName + ", " + LastName + ", " + Salary + ", " + Helper.MasToString(Marks) + ", " + Specialization;
         }
         public override void Work()
         {

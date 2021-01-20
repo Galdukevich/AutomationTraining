@@ -22,6 +22,20 @@ namespace Classes
         public string LastName { get; set; }
         public float Salary { get; set; }
 
+        public int[] Marks;
+
+        public int this[int index]
+        {
+            get
+            {
+                return Marks[index];
+            }
+            set
+            {
+                Marks[index] = value;
+            }
+        }
+
         //public virtual string GetInfo()
         //{
         //   return FirstName + " " + LastName + " " + Salary;
@@ -31,12 +45,22 @@ namespace Classes
 
         public abstract void Work();
 
+        public int[] PrintMassive(int[] PrintMassive)
+        {
+            for (int i = 0; i < PrintMassive.Length; i++)
+            //foreach (int i in PrintMassive)
+            {
+                Console.WriteLine(PrintMassive[i]);
+            }
+            return PrintMassive;
+        }
 
-        public Employee(string fn, string ln, float sal)
+        public Employee(string fn, string ln, float sal, int[] mk)
         {
             FirstName = fn;
             LastName = ln;
             Salary = sal;
+            Marks = mk;
         }
 
         public Employee()

@@ -10,13 +10,13 @@ namespace Classes
     {
         public string Specialization { get; set; }
 
-        public QAEmployee(string fn, string ln, float sal, string spec):base(fn, ln, sal)
+        public QAEmployee(string fn, string ln, float sal, int[] mk, string spec):base(fn, ln, sal, mk)
         {
             Specialization = spec;
         }
         public override string GetInfo()
         {
-            return FirstName + " " + LastName + " " + Salary + " " + Specialization;
+            return FirstName + ", " + LastName + ", " + Salary + ", " + Helper.MasToString(Marks) + ", " + Specialization;
         }
         public override void Work()
         {
