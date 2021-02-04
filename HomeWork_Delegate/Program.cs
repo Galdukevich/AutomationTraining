@@ -8,7 +8,7 @@ namespace HomeWork_Delegate
 {
     class Program
     {
-        static void Main(string[] args)
+            static void Main(string[] args)
         {
             //creating 10 new windows
             Window window1 = new Window(5, 5, 5, 5);
@@ -22,8 +22,10 @@ namespace HomeWork_Delegate
             Window window9 = new Window(70, 70, 70, 70);
             Window window10 = new Window(80, 80, 80, 80);
 
+            //Window window11 = new Window(new Point(1, 2), 5 5);
+
             //creating MyList using generic
-            List<Window> windowList = new List<Window>();
+            List<Window> windowList = new List<Window>();           
             windowList.Add(window1);
             windowList.Add(window2);
             windowList.Add(window3);
@@ -35,11 +37,45 @@ namespace HomeWork_Delegate
             windowList.Add(window9);
             windowList.Add(window10);
 
+            var points = windowList.Select(x => (x.Width, x.Lenght)).Where(x => x.Width == 5).Select(x => (x, 0)).ToList();
+
+
+
+            //select 2 variables from windowList and input them in new list
+            var fixedsizeWindows2 = windowList.Select(x => (x.Width, x.Lenght))
+                                              .Where(x => x.Width == 5);
+                                              //.OrderBy...
+                                              //.ToList();
+            //using new list with 2 variables, output there values on console
+            foreach (var item in fixedsizeWindows2)
+            {
+                Console.WriteLine("{0}, {1}", item.Width, item.Lenght);
+            }
+
+            //select all windows with Width = 5, and input into FixedSizeWindows list
+            var fixedsizeWindows = new List<Window>();
+            foreach(var window in windowList)
+            {
+                if (window.Width == 5)
+                {
+                    fixedsizeWindows.Add(window);
+                }
+            }
+
+            //the same operation using Linq (select all windows with Width = 5, and input into FixedSizeWindows list)
+            var linqExpression = windowList.Where(x => x.Width == 5);
+            fixedsizeWindows = linqExpression.ToList();
+
+            //the same operation more shoter
+            fixedsizeWindows = windowList.Where(x => x.Width == 5).ToList();
+
+            
+
             //entering command from keyboard
             string command = Console.ReadLine();
 
             //creating delegate variable to record link to neccessary method
-            Window.WindowAction operation;
+            Window.WindowAction<Window> operation;
 
             if (command == "MoveLeft")               
             {
@@ -68,6 +104,23 @@ namespace HomeWork_Delegate
                 operation = Window.Resize;
                 Window.DoSomeOperation(windowList, operation);
             }
+
+
+            Window.WindowAction<int> operationInt;
+            int[] massive = { 1, 2, 3 };
+            //operationInt = Window.DoSomething;
+            //Window.PrintMassive(massive, operationInt);
+
+            //anoniumois method with short delegate
+            Func<Window, Window> del1 = delegate (Window data)
+            {
+                data.X += 1;
+                return data;
+            };          
+
+            //anoniumois method with more shorter delegate
+            //Func<int, int> del = data => { data.X += 1; return data; };
+            //Window.PrintMassive(windowList, del);
         }
     }
 }

@@ -8,10 +8,19 @@ namespace HomeWork_Delegate
 {
     class Window
     {
+        //public Point LeftTop { get; set; }
+
         public int X { get; set; }
         public int Y { get; set; }
         public int Lenght { get; set; }
         public int Width { get; set; }
+
+        /*public Window(Point topLeft, int le, int wi)
+        {
+            LeftTop = topLeft;
+            Lenght = le;
+            Width = wi;
+        }*/
 
         public Window (int x, int y, int le, int wi)
         {
@@ -53,17 +62,38 @@ namespace HomeWork_Delegate
             return data;
         }
 
+        public static int[] DoSomething(int[] a)
+        {
+            foreach (var i in a)
+            {
+                a[i] += 2;
+            }
+            return a;
+        }
+
         //delegate incapsulate adress
-        public delegate Window WindowAction(Window window);
+        public delegate Window WindowAction<T>(T window);
+
+
 
         //method that takes List and delegate variable
-        public static List<Window> DoSomeOperation(List<Window> window, WindowAction operation)
+        public static List<Window> DoSomeOperation(List<Window> window, WindowAction<Window> operation)
         {
             for (int i = 0; i < window.Count; i++)
             {
                 window[i] = operation(window[i]);
             }
             return window;
+        }
+
+        //another method for delegate with another data type
+        public static int[] PrintMassive(int[] massive, WindowAction<int> del)
+        {
+            foreach (var val in massive)
+            {
+                del(val);
+            }
+            return massive;
         }
     }
 }
