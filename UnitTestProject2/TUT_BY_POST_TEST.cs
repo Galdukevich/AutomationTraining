@@ -67,7 +67,7 @@ namespace TUT_BY_POST_TEST.Tests
             //Go to main page with acc1
             MainPage mainPageAcc1_1 = reloginPage2.OpenMainPage();
             //find last letter
-            mainPageAcc1_1.Find_and_Open_LastLetter();  //может не подойти, письма с ответами открываются чуть по другому
+            mainPageAcc1_1.Find_and_Open_LetterAnswer();  //может не подойти, письма с ответами открываются чуть по другому
 
 
             //go to letter page

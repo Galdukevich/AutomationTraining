@@ -24,7 +24,6 @@ namespace TUT_BY_POST_TESTS.Pages
         IWebElement _NewLetterTheme;
         IWebElement _NewLetterContent;
         IWebElement _NewLetterSendButton;
-        IWebElement _Letter;
 
         public MainPage(IWebDriver driver)
         {
@@ -54,9 +53,20 @@ namespace TUT_BY_POST_TESTS.Pages
 
         public void Find_and_Open_LastLetter()
         {
-            var _Letter = _driver.FindElements(By.TagName("TEST")).ToList();
+            List<IWebElement> _Letter = _driver.FindElements(By.XPath("/html/body/div[2]/div[6]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/div/div/a/div/span[1]/span[2]")).ToList();
+            
+            _Letter[0].Click();
+        }
 
-            //_Letter.Click();
+        public void Find_and_Open_LetterAnswer()
+        {
+            List<IWebElement> _Letter = _driver.FindElements(By.XPath("/html/body/div[2]/div[6]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/div/div/a/div/span[1]/span[2]")).ToList();
+            Thread.Sleep(1000);
+            _Letter[0].Click();
+
+            List<IWebElement> _Letter2 = _driver.FindElements(By.XPath("/html/body/div[2]/div[6]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/div/div/a/div/span[1]/span[2]")).ToList();
+            Thread.Sleep(1000);
+            _Letter2[0].Click();
         }
 
         public ReLoginPage OpenReLoginPage()

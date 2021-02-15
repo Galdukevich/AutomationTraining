@@ -46,6 +46,7 @@ namespace TUT_BY_POST_TESTS.Pages
             Thread.Sleep(1000);
             _LoginButtonSubmit = _driver.FindElement(By.XPath(_loginButtonSubmit_XPath));
             _LoginButtonSubmit.Click();
+            Thread.Sleep(1000);
         }
 
         public MainPage OpenMainPage()
