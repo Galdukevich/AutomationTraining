@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebDriverIntroTests1.Pages
+namespace TUT_BY_POST_TEST.Pages
 {
     public class SearchResultsPage
     {

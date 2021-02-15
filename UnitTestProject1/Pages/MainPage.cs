@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace WebDriverIntroTests1.Pages
+namespace TUT_BY_POST_TEST.Pages
 {
     public class MainPage
     {

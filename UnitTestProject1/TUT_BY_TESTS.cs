@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Threading;
-using WebDriverIntroTests1.Pages;
+using TUT_BY_POST_TEST.Pages;
 
 namespace WebDriverIntro.Tests
 {
