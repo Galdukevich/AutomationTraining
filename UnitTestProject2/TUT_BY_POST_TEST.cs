@@ -60,7 +60,7 @@ namespace TUT_BY_POST_TEST.Tests
             letterPage.AnswerMessage(answerMail);
 
             //go to ReLoginPage and login with acc1
-            ReLoginPage reloginPage2 = mainPageAcc1.OpenReLoginPage();
+            ReLoginPage reloginPage2 = mainPageAcc2.OpenReLoginPage();
             reloginPage2.Re_Log_in(login, password);
 
 
