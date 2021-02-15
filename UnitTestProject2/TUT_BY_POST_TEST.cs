@@ -15,6 +15,7 @@ namespace WebDriverIntro.Tests
         const string password = "1qaz!QAZ";
         IWebDriver _driver = new OpenQA.Selenium.Chrome.ChromeDriver(chromeDriverDir);
         public string text;
+        string result = "TEST";
 
         [TestMethod()]
         public void SearchTest()
@@ -26,7 +27,7 @@ namespace WebDriverIntro.Tests
             ResultsPage resultsPage = mainPage.SearchInfo();
 
             resultsPage.Initialize3(ref text);
-            Assert.IsTrue(text.Contains("TEST"));
+            Assert.IsTrue(text.Contains(result));
         }
     }
 }
