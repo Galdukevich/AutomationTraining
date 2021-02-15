@@ -61,11 +61,11 @@ namespace TUT_BY_POST_TEST.Tests
 
             //go to ReLoginPage and login with acc1
             ReLoginPage reloginPage2 = mainPageAcc1.OpenReLoginPage();
-            reloginPage.Re_Log_in(login, password);
+            reloginPage2.Re_Log_in(login, password);
 
 
             //Go to main page with acc1
-            MainPage mainPageAcc1_1 = reloginPage.OpenMainPage();
+            MainPage mainPageAcc1_1 = reloginPage2.OpenMainPage();
             //find last letter
             mainPageAcc1_1.Find_and_Open_LastLetter();  //может не подойти, письма с ответами открываются чуть по другому
 
@@ -73,7 +73,7 @@ namespace TUT_BY_POST_TEST.Tests
             //go to letter page
             LetterPage letterPage2 = mainPageAcc1_1.OpenLetterPage();
             //fint letter content
-            letterPage.FindLetterText(ref text);
+            letterPage2.FindLetterText(ref text);
 
             //verify letter answer text
             Assert.IsTrue(text.Contains(answerMail));
