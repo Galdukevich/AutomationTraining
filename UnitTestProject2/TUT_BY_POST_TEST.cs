@@ -14,13 +14,14 @@ namespace TUT_BY_POST_TEST.Tests
         IWebDriver _driver = new OpenQA.Selenium.Chrome.ChromeDriver(chromeDriverDir);
 
         const string chromeDriverDir = @"C:\Users\alexandergaldukevich\source\repos\UnitTestProject1\UnitTestProject1\";
-        public string login = "segbesrgesrgre@tut.by";   //shrtehrsthrsth@tut.by  qwerty123
+        public string login = "segbesrgesrgre@tut.by";
         const string password = "1qaz!QAZ";
         public string login2 = "shrtehrsthrsth@tut.by";
-        string letterTheme = "TEST";
-        string letterContent = "TEST";
+        public string adresse = "ergf rtg";
+        string letterTheme = "LastTEST";
+        string letterContent = "LastTEST";
         public string text;
-        string answerMail = "TestAnswer";
+        string answerMail = "LastTestAnswer";
 
         [TestMethod()]
         public void SearchTest()
@@ -45,7 +46,7 @@ namespace TUT_BY_POST_TEST.Tests
             //Go to main page with acc2
             MainPage mainPageAcc2 = reloginPage.OpenMainPage();
             //find last letter
-            mainPageAcc2.Find_and_Open_LastLetter();
+            mainPageAcc2.FindAndOpenLastLetter();
 
 
             //go to letter page
@@ -67,7 +68,7 @@ namespace TUT_BY_POST_TEST.Tests
             //Go to main page with acc1
             MainPage mainPageAcc1_1 = reloginPage2.OpenMainPage();
             //find last letter
-            mainPageAcc1_1.Find_and_Open_LetterAnswer();  //может не подойти, письма с ответами открываются чуть по другому
+            mainPageAcc1_1.FindAndOpenLetterAnswer();
 
 
             //go to letter page

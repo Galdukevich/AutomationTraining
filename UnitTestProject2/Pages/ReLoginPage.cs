@@ -30,6 +30,7 @@ namespace TUT_BY_POST_TESTS.Pages
 
         public void Re_Log_in(string login, string password)
         {
+            Thread.Sleep(1000);
             _driver.Navigate().GoToUrl(_reloginURL);
             Thread.Sleep(1000);
             _AddAcountButton = _driver.FindElement(By.ClassName(_addAcountButton_ClassName));

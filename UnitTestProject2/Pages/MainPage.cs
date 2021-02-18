@@ -5,18 +5,19 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Linq;
+using OpenQA.Selenium.Support.UI;
 
 namespace TUT_BY_POST_TESTS.Pages
 {
     public class MainPage
-    {
-        private const string _letterClassName = "mail-MessageSnippet-FromText";
-        private const string _letterList_XPath = "/html/body/div[2]/div[6]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div/div[2]";
-        private const string _newLetterButton_XPath = "/html/body/div[2]/div[6]/div/div[3]/div[2]/div[2]/div/div/a";
-        private const string _newLetterAdress_InputField_ClassName = "composeYabbles";
-        private const string _newLetterTheme_InputField_XPath = "/html/body/div[2]/div[9]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/div[1]/div[3]/div/div/input";
-        private const string _newLetterContent_InputField_XPath = "/html/body/div[2]/div[9]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[3]/div[2]/div/div/div[1]/div/div/div";
-        private const string _newLetterSendButton_XPath = "/html/body/div[2]/div[9]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/div[1]/button";
+    {                                                
+        private const string _letterList_XPath = ".//html/body/div[2]/div[7]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div/div[2]/div//*";
+        private const string _newLetterButton_XPath = "/html/body/div[2]/div[7]/div/div[3]/div[2]/div[2]/div/div/a";
+        private const string _newLetterAdress_InputField_ClassName = "composeYabbles";                                                                     
+        private const string _newLetterTheme_InputField_XPath = "/html/body/div[2]/div[10]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/div[1]/div[3]/div/div/input";
+        private const string _newLetterContent_InputField_XPath = "/html/body/div[2]/div[10]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[3]/div[2]/div/div/div[1]/div/div/div";
+        private const string _newLetterSendButton_XPath = "/html/body/div[2]/div[10]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/div[1]/button";
+        private const string _notReaded_XPath = "/html/body/div[2]/div[7]/div/div[3]/div[2]/div[3]/div/div[2]/div[1]/div[2]/span/a/span/span/span";
 
         private IWebDriver _driver;
         IWebElement _NewLetterButton;
@@ -24,6 +25,7 @@ namespace TUT_BY_POST_TESTS.Pages
         IWebElement _NewLetterTheme;
         IWebElement _NewLetterContent;
         IWebElement _NewLetterSendButton;
+        IWebElement _NotReaded;
 
         public MainPage(IWebDriver driver)
         {
@@ -51,22 +53,43 @@ namespace TUT_BY_POST_TESTS.Pages
             Thread.Sleep(1000);
         }
 
-        public void Find_and_Open_LastLetter()
+        public void FindAndOpenLastLetter()
         {
-            List<IWebElement> _Letter = _driver.FindElements(By.XPath("/html/body/div[2]/div[6]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/div/div/a/div/span[1]/span[2]")).ToList();
-            
-            _Letter[0].Click();
+            //find list of all letters
+            List<IWebElement> _Letter = _driver.FindElements(By.XPath(_letterList_XPath))
+                                               .ToList();
+            Thread.Sleep(1000);
+
+            //this XPath find letters, that contain class state_ToRead, title "Mark as read", and find all next elements on this level (need to click)
+            var _NewLetterList = _Letter.SelectMany(x => x.FindElements(By.XPath(".//span[contains(@class, 'state_toRead')]/../following-sibling::span")))
+                                        .ToList();
+            Thread.Sleep(1000);
+
+            //we find all unread letters and opening first
+            _NewLetterList[0].Click();
         }
 
-        public void Find_and_Open_LetterAnswer()
+        public void FindAndOpenLetterAnswer()
         {
-            List<IWebElement> _Letter = _driver.FindElements(By.XPath("/html/body/div[2]/div[6]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/div/div/a/div/span[1]/span[2]")).ToList();
             Thread.Sleep(1000);
-            _Letter[0].Click();
+            //we find all unread letters
+            var _NotReaded = _driver.FindElement(By.XPath(_notReaded_XPath));
+            _NotReaded.Click();
+            Thread.Sleep(1000);
 
-            List<IWebElement> _Letter2 = _driver.FindElements(By.XPath("/html/body/div[2]/div[6]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/div/div/a/div/span[1]/span[2]")).ToList();
+            //find list of all letters
+            List<IWebElement> _Letter = _driver.FindElements(By.XPath(_letterList_XPath))
+                                               .ToList();
             Thread.Sleep(1000);
-            _Letter2[0].Click();
+
+            //this XPath find letters, that contain class state_ToRead, title "Mark as read", and find all next elements on this level (need to click)
+            var _NewLetterList = _Letter.SelectMany(x => x.FindElements(By.XPath(".//span[contains(@class, 'state_toRead')]/../following-sibling::span")))
+                                        .ToList();
+            Thread.Sleep(1000);
+
+            //we find all unread letters and opening first
+            _NewLetterList[0].Click();
+
         }
 
         public ReLoginPage OpenReLoginPage()

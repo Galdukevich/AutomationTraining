@@ -13,11 +13,11 @@ namespace TUT_BY_POST_TEST.Pages
     public class LetterPage
     {
         private const string _letterContentClassName = "mail-Message-Content";
-        private const string _quickReplyInputField_XPath = "/html/body/div[2]/div[6]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div[4]/div/div/div/div[2]/div/label[2]/div[2]/div/div/div/div/div";
-        private const string _quickReplySendButton = "/html/body/div[2]/div[6]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div[4]/div/div/div/div[2]/div/div[2]/div/span[1]";
-        private const string _clickHereToType = "html/body/div[2]/div[6]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div[4]";
-        private const string _newLetterSendButton_XPath = "/html/body/div[2]/div[9]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/div[1]/button";
-        private IWebDriver _driver; 
+        private const string _quickReplyInputField_XPath = "/html/body/div[2]/div[7]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div[4]/div/div/div/div[2]/div/label[2]/div[2]/div/div/div/div/div";
+        private const string _quickReplySendButton = "/html/body/div[2]/div[7]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div[4]/div/div/div/div[2]/div/div[2]/div/span[1]";                                                     
+        private const string _clickHereToType = "/html/body/div[2]/div[7]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div[4]/div/div/div"; 
+        private const string _newLetterSendButton_XPath = "/html/body/div[2]/div[7]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div[4]/div/div/div/div[2]/div/div[2]/div/span[1]/button";
+        private IWebDriver _driver;                        
 
         IWebElement _Content;
         IWebElement _QuickReply;
