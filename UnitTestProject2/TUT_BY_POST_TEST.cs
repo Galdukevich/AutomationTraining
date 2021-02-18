@@ -14,14 +14,14 @@ namespace TUT_BY_POST_TEST.Tests
         IWebDriver _driver = new OpenQA.Selenium.Chrome.ChromeDriver(chromeDriverDir);
 
         const string chromeDriverDir = @"C:\Users\alexandergaldukevich\source\repos\UnitTestProject1\UnitTestProject1\";
-        public string login = "segbesrgesrgre@tut.by";
+        const string login = "segbesrgesrgre@tut.by";
         const string password = "1qaz!QAZ";
-        public string login2 = "shrtehrsthrsth@tut.by";
-        public string adresse = "ergf rtg";
-        string letterTheme = "LastTEST";
-        string letterContent = "LastTEST";
-        public string text;
-        string answerMail = "LastTestAnswer";
+        const string login2 = "shrtehrsthrsth@tut.by";
+        const string adresse = "ergf rtg";
+        const string letterTheme = "LastTEST";
+        const string letterContent = "LastTEST";
+        string text;
+        const string answerMail = "LastTestAnswer";
 
         [TestMethod()]
         public void SearchTest()
@@ -29,7 +29,7 @@ namespace TUT_BY_POST_TEST.Tests
             //create new login page
             LoginPage loginPage = new LoginPage(_driver);
             //enter login and password for acc1
-            loginPage.Log_in(login, password);
+            loginPage.LogIn(login, password);
 
 
             //go to MainPage

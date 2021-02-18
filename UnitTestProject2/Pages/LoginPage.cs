@@ -12,8 +12,8 @@ namespace TUT_BY_POST_TEST.Pages
     public class LoginPage
     {
         private const string URL = "https://mail.tut.by/";       
-        private static readonly string _login_ID_InputField = "Username";
-        private static readonly string _password_ID_InputField = "Password";
+        private const string _login_ID_InputField = "Username";
+        private const string _password_ID_InputField = "Password";
         private const string _loginButtonXPath = "/ html / body / div / div[1] / div[2] / div[1] / div[2] / div / form / fieldset / div[3] / input";
         private IWebDriver _driver;
 
@@ -37,7 +37,7 @@ namespace TUT_BY_POST_TEST.Pages
             _Enter = _driver.FindElement(By.XPath(_loginButtonXPath));
         }
 
-        public void Log_in (string login, string password)
+        public void LogIn (string login, string password)
         {
             _Login.SendKeys(login);
             Thread.Sleep(1000);
