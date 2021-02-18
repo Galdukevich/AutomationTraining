@@ -78,6 +78,8 @@ namespace TUT_BY_POST_TEST.Tests
 
             //verify letter answer text
             Assert.IsTrue(text.Contains(answerMail));
+
+            _driver.Close();
         }
     }
 }
