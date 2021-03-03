@@ -11,7 +11,7 @@ namespace Task20
         const string login = "segbesrgesrgre@tut.by";
         const string password = "1qaz!QAZ";
         const string username = "цукыпацуп цупауцп";
-        string loggedUser;
+        string loggedInUser;
 
         [Test]
         public void LoginTestFirefox()
@@ -26,9 +26,9 @@ namespace Task20
             //go to MainPage
             MainPage mainPage = loginPage.OpenMainPage();
             //get username
-            mainPage.GetUserName(ref loggedUser);
+            mainPage.GetUserName(ref loggedInUser);
 
-            Assert.AreEqual(username, loggedUser);
+            Assert.AreEqual(username, loggedInUser);
 
             _driver.Close();
         }
